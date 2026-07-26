@@ -1,0 +1,102 @@
+/* RepWarrior site — the app's arcade language (§8): pixel type for
+   chrome only, never body text; CRT wash; square NES panel borders;
+   scanlines per the globals.css recipe. Palette matches ArcadeTheme. */
+
+:root {
+  --crt: #0d0d1f;
+  --cyan: #22d3ee;
+  --lime: #a3e635;
+  --amber: #fbbf24;
+  --purple: #a78bfa;
+  --text: rgba(255, 255, 255, 0.86);
+  --dim: rgba(255, 255, 255, 0.55);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--crt);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.65;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Scanlines: repeating 3px transparent / 1px rgba(0,0,0,0.18). */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px, transparent 3px,
+    rgba(0, 0, 0, 0.18) 3px, rgba(0, 0, 0, 0.18) 4px
+  );
+}
+
+.pixel { font-family: "Press Start 2P", monospace; }
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+.marquee {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: clamp(22px, 6vw, 40px);
+  line-height: 1.3;
+}
+.marquee a { text-decoration: none; }
+.marquee .rep { color: var(--cyan); text-shadow: 2px 2px 0 rgba(167, 139, 250, 0.7); }
+.marquee .warrior { color: var(--lime); text-shadow: 2px 2px 0 rgba(167, 139, 250, 0.7); }
+.marquee sup {
+  font-size: 0.28em;
+  color: var(--dim);
+  vertical-align: super;
+}
+
+.tagline {
+  text-align: center;
+  color: var(--dim);
+  font-size: 10px;
+  line-height: 2.2;
+  margin-bottom: 44px;
+}
+
+.panel {
+  border: 2px solid rgba(167, 139, 250, 0.55);
+  outline: 2px solid rgba(167, 139, 250, 0.2);
+  outline-offset: 3px;
+  padding: 28px 26px;
+  margin-bottom: 36px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.panel-title {
+  color: var(--cyan);
+  font-size: 12px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+p { margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--cyan); }
+
+.footer {
+  text-align: center;
+  color: var(--dim);
+  font-size: 13px;
+}
+.footer .pixel { font-size: 8px; line-height: 2.4; }
+
+ul { padding-left: 22px; margin-bottom: 14px; }
+li { margin-bottom: 8px; }
+
+.lime { color: var(--lime); }
+.amber { color: var(--amber); }
