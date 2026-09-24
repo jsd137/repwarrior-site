@@ -1,102 +1,108 @@
-/* RepWarrior site — the app's arcade language (§8): pixel type for
-   chrome only, never body text; CRT wash; square NES panel borders;
-   scanlines per the globals.css recipe. Palette matches ArcadeTheme. */
+/* RepWarrior site: the app's own art language ("Iron & Ember", 2026-09-23).
+   Pixel type (RepWarrior Pixel, drawn for the app) for chrome only, never
+   body text. Pixel art is scaled with image-rendering: pixelated, the
+   same law as the app. Palette matches ArcadeTheme. Assets are generated
+   by art/site.py in the app repo. */
+
+@font-face {
+  font-family: "RepWarrior Pixel";
+  src: url("assets/repwarrior-pixel.woff") format("woff");
+  font-display: swap;
+}
 
 :root {
-  --crt: #0d0d1f;
-  --cyan: #22d3ee;
-  --lime: #a3e635;
-  --amber: #fbbf24;
-  --purple: #a78bfa;
-  --text: rgba(255, 255, 255, 0.86);
-  --dim: rgba(255, 255, 255, 0.55);
+  --floor: #130f20;
+  --panel: #1b152a;
+  --ink: #0d0a16;
+  --frame: #4a3d68;
+  --frame-light: #7a6c9c;
+  --frame-dark: #2b2240;
+  --sky: #6fcaec;
+  --leaf: #a6dd62;
+  --gold: #ffc85a;
+  --rose: #f07aac;
+  --bone: #fff4e2;
+  --text: rgba(255, 244, 226, 0.88);
+  --dim: rgba(255, 244, 226, 0.58);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: var(--crt);
+  background: var(--floor);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
   line-height: 1.65;
-  min-height: 100vh;
-  position: relative;
 }
 
-/* Scanlines: repeating 3px transparent / 1px rgba(0,0,0,0.18). */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px, transparent 3px,
-    rgba(0, 0, 0, 0.18) 3px, rgba(0, 0, 0, 0.18) 4px
-  );
+.pixel { font-family: "RepWarrior Pixel", ui-monospace, monospace; letter-spacing: 0.02em; }
+img.px { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+main { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+
+.hero { position: relative; margin: 0 -20px 28px; overflow: hidden; background: #0d0a16; }
+.hero img.scene { display: block; width: 100%; height: auto; }
+.hero img.logo {
+  position: absolute; left: 50%; top: 9%; transform: translateX(-50%);
+  width: min(88%, 546px); height: auto;
 }
 
-.pixel { font-family: "Press Start 2P", monospace; }
-
-main {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 48px 20px 80px;
-}
-
-.marquee {
-  text-align: center;
-  margin-bottom: 8px;
-  font-size: clamp(22px, 6vw, 40px);
-  line-height: 1.3;
-}
-.marquee a { text-decoration: none; }
-.marquee .rep { color: var(--cyan); text-shadow: 2px 2px 0 rgba(167, 139, 250, 0.7); }
-.marquee .warrior { color: var(--lime); text-shadow: 2px 2px 0 rgba(167, 139, 250, 0.7); }
-.marquee sup {
-  font-size: 0.28em;
-  color: var(--dim);
-  vertical-align: super;
-}
+.wordmark { display: block; margin: 36px auto 10px; width: min(80%, 364px); height: auto; }
 
 .tagline {
   text-align: center;
   color: var(--dim);
-  font-size: 10px;
-  line-height: 2.2;
-  margin-bottom: 44px;
+  font-size: 13px;
+  line-height: 2.1;
+  margin-bottom: 28px;
 }
 
+/* Window panel: ink rim, frame band, lit top-left bevel, shaded
+   bottom-right, hard ink drop. */
 .panel {
-  border: 2px solid rgba(167, 139, 250, 0.55);
-  outline: 2px solid rgba(167, 139, 250, 0.2);
-  outline-offset: 3px;
-  padding: 28px 26px;
-  margin-bottom: 36px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--panel);
+  border: 2px solid var(--ink);
+  box-shadow:
+    inset 0 0 0 2px var(--frame),
+    inset 4px 4px 0 0 var(--frame-light),
+    inset -4px -4px 0 0 var(--frame-dark),
+    4px 4px 0 0 var(--ink);
+  padding: 26px 26px 24px;
+  margin-bottom: 30px;
 }
 
 .panel-title {
-  color: var(--cyan);
-  font-size: 12px;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: normal;
+  margin-bottom: 16px;
 }
+.panel-title img { width: 32px; height: 32px; }
 
+h3 { font-size: 17px; color: var(--bone); margin: 18px 0 6px; }
 p { margin-bottom: 14px; }
-p:last-child { margin-bottom: 0; }
-
-a { color: var(--cyan); }
-
-.footer {
-  text-align: center;
-  color: var(--dim);
-  font-size: 13px;
-}
-.footer .pixel { font-size: 8px; line-height: 2.4; }
-
-ul { padding-left: 22px; margin-bottom: 14px; }
+p:last-child, ul:last-child { margin-bottom: 0; }
+ul, ol { padding-left: 22px; margin-bottom: 14px; }
 li { margin-bottom: 8px; }
+a { color: var(--sky); }
+strong { color: var(--bone); font-weight: 600; }
 
-.lime { color: var(--lime); }
-.amber { color: var(--amber); }
+.nav { text-align: center; margin: 0 0 30px; font-size: 13px; }
+.nav a { margin: 0 12px; text-decoration: none; }
+
+.toc { columns: 2; column-gap: 28px; }
+.toc li { break-inside: avoid; }
+
+.footer { text-align: center; color: var(--dim); font-size: 11px; line-height: 2.4; }
+
+.leaf { color: var(--leaf); }
+.gold { color: var(--gold); }
+
+@media (max-width: 520px) {
+  .toc { columns: 1; }
+  .panel { padding: 22px 18px 20px; }
+}

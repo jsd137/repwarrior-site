@@ -3,38 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RepWarrior — honest training load, a coach on your side</title>
-  <meta name="description" content="RepWarrior™ is a strength and training-load app for iPhone. All processing on-device. Your data stays yours.">
+  <title>RepWarrior: strength log and training-load coach</title>
+  <meta name="description" content="RepWarrior™ is a strength logger and training-load coach for iPhone, drawn in hand-made pixel art. Processed on your device.">
   <meta name="color-scheme" content="dark">
-  <style>body{background:#0d0d1f;color:rgba(255,255,255,.86);font-family:-apple-system,BlinkMacSystemFont,sans-serif}</style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <style>body{background:#130f20;color:rgba(255,244,226,.88);font-family:-apple-system,BlinkMacSystemFont,sans-serif}</style>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
-    <h1 class="marquee pixel"><span class="rep">REP</span><span class="warrior">WARRIOR</span><sup>TM</sup></h1>
+    <div class="hero">
+      <img class="scene px" src="assets/hero.png" width="150" height="214" alt="A pixel-art knight pressing a barbell overhead on a stone plinth under the moon, mountains behind.">
+      <img class="logo px" src="assets/logo.png" width="91" height="20" alt="RepWarrior">
+    </div>
     <p class="tagline pixel">HONEST TRAINING LOAD.<br>A COACH ON YOUR SIDE.<br>AN ARCADE THAT ONLY AWARDS.</p>
+    <p class="nav pixel"><a href="guide/">USER GUIDE</a> <a href="privacy/">PRIVACY</a> <a href="#support">SUPPORT</a></p>
 
     <section class="panel">
-      <h2 class="panel-title pixel">WHAT IT IS</h2>
-      <p>RepWarrior is a strength logger and training-load coach for iPhone. It scores your lifting, riding, and walking into one honest picture of fitness and fatigue, coaches from your own training rhythm, and wraps the whole thing in an arcade layer that only ever awards. No accounts, no server, no ads.</p>
-      <p>Currently in beta on TestFlight.</p>
+      <h2 class="panel-title pixel"><img class="px" src="assets/s-dumbbell.png" alt="">WHAT IT IS</h2>
+      <p>RepWarrior™ is a strength logger and training-load coach for iPhone. It scores your lifting, riding, running, and walking into one picture of fitness and fatigue, coaches from your own training rhythm, and wraps it in an arcade layer that only ever awards.</p>
+      <ul>
+        <li>Unlimited templates, last session's numbers pre-filled, reps in reserve, supersets, a rest timer, and a plate calculator</li>
+        <li>Fitness, fatigue, and form curves across every sport you do</li>
+        <li>Heart rate, HRV, sleep, and resting heart rate from Apple Watch through Apple Health</li>
+        <li>XP, a badge cabinet, a life bar of pixel hearts, and a 25 creature bestiary, all hideable with Classic Mode</li>
+      </ul>
+      <p>Currently in beta on TestFlight. New here? The <a href="guide/">user guide</a> walks through every screen.</p>
     </section>
 
     <section class="panel">
-      <h2 class="panel-title pixel">YOUR DATA</h2>
-      <p>Everything is processed on your device and stored there and in your private iCloud, which only you can access. Nothing is ever sold, shared, or sent to us.</p>
+      <h2 class="panel-title pixel"><img class="px" src="assets/s-scroll.png" alt="">YOUR DATA</h2>
+      <p>Everything is processed on your device and stored there and in your private iCloud, which only you can access. There is no account, no server, and no analytics.</p>
       <p><a href="privacy/">Read the full privacy policy</a></p>
     </section>
 
-    <section class="panel">
-      <h2 class="panel-title pixel">SUPPORT</h2>
+    <section class="panel" id="support">
+      <h2 class="panel-title pixel"><img class="px" src="assets/s-owl.png" alt="">SUPPORT</h2>
+      <p>Start with the <a href="guide/">user guide</a>, which covers setup, logging, heart rate with Apple Watch, and what every number means.</p>
       <p>Questions or feedback about the beta come through TestFlight's built-in feedback, which reaches the developer directly.</p>
     </section>
 
-    <p class="footer pixel">© 2026 · REPWARRIOR™ IS A TRADEMARK OF ITS DEVELOPER</p>
+    <p class="footer pixel">&copy; 2026 &middot; REPWARRIOR&trade; IS A TRADEMARK OF ITS DEVELOPER</p>
   </main>
 </body>
 </html>
